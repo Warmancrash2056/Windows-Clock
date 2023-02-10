@@ -1,0 +1,36 @@
+# importing whole module
+from tkinter import *
+from tkinter.ttk import *
+from tkinter import Tk, font
+ 
+# Import time method strftime. Strftime is used too convert strings in to data to get the actual time of the day. 
+from time import strftime
+ 
+# creating tkinter window
+root = Tk()
+root.title('Clock')
+
+# Print all aavailable font to use
+print(font.families())
+ 
+# This function is used to
+# display time on the label
+ 
+def time():
+    string = strftime('%H:%M:%S %p')
+    lbl.config(text=string)
+    lbl.after(1000, time)
+ 
+ 
+# Styling the label widget so that clock
+# will look more attractive
+lbl = Label(root, font=("system", 120, 'bold'),
+            background='white',
+            foreground='black',)
+ 
+# Placing clock at the centre
+# of the tkinter window
+lbl.pack(anchor='n')
+time()
+ 
+mainloop()
